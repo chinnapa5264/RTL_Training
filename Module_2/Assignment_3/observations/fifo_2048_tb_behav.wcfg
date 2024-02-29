@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_fifo_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_fifo_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="262.830 ns"></ZoomStartTime>
+      <ZoomEndTime time="498.431 ns"></ZoomEndTime>
+      <Cursor1Time time="237.430 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="197"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="85" />
+   <wvobject fp_name="/tb_fifo_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/writeData" type="array">
+      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/writeDataValid" type="logic">
+      <obj_property name="ElementShortName">writeDataValid</obj_property>
+      <obj_property name="ObjectShortName">writeDataValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/writeDataReady" type="logic">
+      <obj_property name="ElementShortName">writeDataReady</obj_property>
+      <obj_property name="ObjectShortName">writeDataReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/writeDataLast" type="logic">
+      <obj_property name="ElementShortName">writeDataLast</obj_property>
+      <obj_property name="ObjectShortName">writeDataLast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/readData" type="array">
+      <obj_property name="ElementShortName">readData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/readDataValid" type="logic">
+      <obj_property name="ElementShortName">readDataValid</obj_property>
+      <obj_property name="ObjectShortName">readDataValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/readDataReady" type="logic">
+      <obj_property name="ElementShortName">readDataReady</obj_property>
+      <obj_property name="ObjectShortName">readDataReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/readDataLast" type="logic">
+      <obj_property name="ElementShortName">readDataLast</obj_property>
+      <obj_property name="ObjectShortName">readDataLast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/full" type="logic">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/CLK_PERIOD" type="array">
+      <obj_property name="ElementShortName">CLK_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/DATA_WIDTH" type="array">
+      <obj_property name="ElementShortName">DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/DEPTH" type="array">
+      <obj_property name="ElementShortName">DEPTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DEPTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/writeData" type="array">
+      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/writeDataValid" type="logic">
+      <obj_property name="ElementShortName">writeDataValid</obj_property>
+      <obj_property name="ObjectShortName">writeDataValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/writeDataReady" type="logic">
+      <obj_property name="ElementShortName">writeDataReady</obj_property>
+      <obj_property name="ObjectShortName">writeDataReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/writeDataLast" type="logic">
+      <obj_property name="ElementShortName">writeDataLast</obj_property>
+      <obj_property name="ObjectShortName">writeDataLast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/readData" type="array">
+      <obj_property name="ElementShortName">readData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/readDataValid" type="logic">
+      <obj_property name="ElementShortName">readDataValid</obj_property>
+      <obj_property name="ObjectShortName">readDataValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/readDataReady" type="logic">
+      <obj_property name="ElementShortName">readDataReady</obj_property>
+      <obj_property name="ObjectShortName">readDataReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/readDataLast" type="logic">
+      <obj_property name="ElementShortName">readDataLast</obj_property>
+      <obj_property name="ObjectShortName">readDataLast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/full" type="logic">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/mem" type="array">
+      <obj_property name="ElementShortName">mem[0:2047][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[0:2047][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/wrPtr" type="array">
+      <obj_property name="ElementShortName">wrPtr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">wrPtr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/wrPtrNext" type="array">
+      <obj_property name="ElementShortName">wrPtrNext[11:0]</obj_property>
+      <obj_property name="ObjectShortName">wrPtrNext[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/rdPtr" type="array">
+      <obj_property name="ElementShortName">rdPtr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdPtr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/rdPtrNext" type="array">
+      <obj_property name="ElementShortName">rdPtrNext[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdPtrNext[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/valid_out" type="logic">
+      <obj_property name="ElementShortName">valid_out</obj_property>
+      <obj_property name="ObjectShortName">valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/out_tlast" type="logic">
+      <obj_property name="ElementShortName">out_tlast</obj_property>
+      <obj_property name="ObjectShortName">out_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/full_w" type="logic">
+      <obj_property name="ElementShortName">full_w</obj_property>
+      <obj_property name="ObjectShortName">full_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/full_r" type="logic">
+      <obj_property name="ElementShortName">full_r</obj_property>
+      <obj_property name="ObjectShortName">full_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/empty_r" type="logic">
+      <obj_property name="ElementShortName">empty_r</obj_property>
+      <obj_property name="ObjectShortName">empty_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/empty_w" type="logic">
+      <obj_property name="ElementShortName">empty_w</obj_property>
+      <obj_property name="ObjectShortName">empty_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/t_last_reg" type="array">
+      <obj_property name="ElementShortName">t_last_reg[1023:0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">t_last_reg[1023:0][11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/tlast_count_write" type="array">
+      <obj_property name="ElementShortName">tlast_count_write[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_write[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/tlast_count_next_write" type="array">
+      <obj_property name="ElementShortName">tlast_count_next_write[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_next_write[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/tlast_count_read" type="array">
+      <obj_property name="ElementShortName">tlast_count_read[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_read[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/tlast_count_next_read" type="array">
+      <obj_property name="ElementShortName">tlast_count_next_read[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_next_read[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/enable2" type="logic">
+      <obj_property name="ElementShortName">enable2</obj_property>
+      <obj_property name="ObjectShortName">enable2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/t_last" type="logic">
+      <obj_property name="ElementShortName">t_last</obj_property>
+      <obj_property name="ObjectShortName">t_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/DataWidth" type="array">
+      <obj_property name="ElementShortName">DataWidth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataWidth[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/Depth" type="array">
+      <obj_property name="ElementShortName">Depth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Depth[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo1/PtrWidth" type="array">
+      <obj_property name="ElementShortName">PtrWidth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PtrWidth[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/writeData" type="array">
+      <obj_property name="ElementShortName">writeData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writeData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/writeDataValid" type="logic">
+      <obj_property name="ElementShortName">writeDataValid</obj_property>
+      <obj_property name="ObjectShortName">writeDataValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/writeDataReady" type="logic">
+      <obj_property name="ElementShortName">writeDataReady</obj_property>
+      <obj_property name="ObjectShortName">writeDataReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/writeDataLast" type="logic">
+      <obj_property name="ElementShortName">writeDataLast</obj_property>
+      <obj_property name="ObjectShortName">writeDataLast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/readData" type="array">
+      <obj_property name="ElementShortName">readData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/readDataValid" type="logic">
+      <obj_property name="ElementShortName">readDataValid</obj_property>
+      <obj_property name="ObjectShortName">readDataValid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/readDataReady" type="logic">
+      <obj_property name="ElementShortName">readDataReady</obj_property>
+      <obj_property name="ObjectShortName">readDataReady</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/readDataLast" type="logic">
+      <obj_property name="ElementShortName">readDataLast</obj_property>
+      <obj_property name="ObjectShortName">readDataLast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/full" type="logic">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/mem" type="array">
+      <obj_property name="ElementShortName">mem[0:2047][31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[0:2047][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/wrPtr" type="array">
+      <obj_property name="ElementShortName">wrPtr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">wrPtr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/wrPtrNext" type="array">
+      <obj_property name="ElementShortName">wrPtrNext[11:0]</obj_property>
+      <obj_property name="ObjectShortName">wrPtrNext[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/rdPtr" type="array">
+      <obj_property name="ElementShortName">rdPtr[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdPtr[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/rdPtrNext" type="array">
+      <obj_property name="ElementShortName">rdPtrNext[11:0]</obj_property>
+      <obj_property name="ObjectShortName">rdPtrNext[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/valid_out" type="logic">
+      <obj_property name="ElementShortName">valid_out</obj_property>
+      <obj_property name="ObjectShortName">valid_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/enable" type="logic">
+      <obj_property name="ElementShortName">enable</obj_property>
+      <obj_property name="ObjectShortName">enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/out_tlast" type="logic">
+      <obj_property name="ElementShortName">out_tlast</obj_property>
+      <obj_property name="ObjectShortName">out_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/full_w" type="logic">
+      <obj_property name="ElementShortName">full_w</obj_property>
+      <obj_property name="ObjectShortName">full_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/full_r" type="logic">
+      <obj_property name="ElementShortName">full_r</obj_property>
+      <obj_property name="ObjectShortName">full_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/empty_r" type="logic">
+      <obj_property name="ElementShortName">empty_r</obj_property>
+      <obj_property name="ObjectShortName">empty_r</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/empty_w" type="logic">
+      <obj_property name="ElementShortName">empty_w</obj_property>
+      <obj_property name="ObjectShortName">empty_w</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/t_last_reg" type="array">
+      <obj_property name="ElementShortName">t_last_reg[1023:0][11:0]</obj_property>
+      <obj_property name="ObjectShortName">t_last_reg[1023:0][11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/tlast_count_write" type="array">
+      <obj_property name="ElementShortName">tlast_count_write[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_write[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/tlast_count_next_write" type="array">
+      <obj_property name="ElementShortName">tlast_count_next_write[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_next_write[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/tlast_count_read" type="array">
+      <obj_property name="ElementShortName">tlast_count_read[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_read[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/tlast_count_next_read" type="array">
+      <obj_property name="ElementShortName">tlast_count_next_read[10:0]</obj_property>
+      <obj_property name="ObjectShortName">tlast_count_next_read[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/enable2" type="logic">
+      <obj_property name="ElementShortName">enable2</obj_property>
+      <obj_property name="ObjectShortName">enable2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/t_last" type="logic">
+      <obj_property name="ElementShortName">t_last</obj_property>
+      <obj_property name="ObjectShortName">t_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/DataWidth" type="array">
+      <obj_property name="ElementShortName">DataWidth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DataWidth[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/Depth" type="array">
+      <obj_property name="ElementShortName">Depth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Depth[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_fifo_top/dut/fifo2/PtrWidth" type="array">
+      <obj_property name="ElementShortName">PtrWidth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PtrWidth[31:0]</obj_property>
+   </wvobject>
+</wave_config>
