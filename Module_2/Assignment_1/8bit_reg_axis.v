@@ -1,67 +1,62 @@
 `timescale 1ns / 1ps
 
-module eight_bit_register_st (
-    input wire clk,
-    input wire reset,
+module eight_bit_register #(parameter Data_width = 8) (
+    input  clk,
+    input reset,
     
-    input wire [7:0] s_axis_tdata,
-    input wire s_axis_tvalid,
-    output wire s_axis_tready,
-    input wire s_axis_tlast,
+    input  [Data_width-1:0] s_axis_tdata,
+    input  s_axis_tvalid,
+    output  s_axis_tready,
+    input  s_axis_tlast,
     
-    output wire [7:0] m_axis_tdata,
-    output wire m_axis_tvalid,
-    input wire m_axis_tready,
-    output wire m_axis_tlast
+    output  [Data_width-1:0] m_axis_tdata,
+    output  m_axis_tvalid,
+    input  m_axis_tready,
+    output  m_axis_tlast
 );
 
-    reg [7:0] reg_data;
+    reg [Data_width-1:0] reg_data=8'd0;
+    reg ready_out;
     reg valid_out;
-    reg out_tlast;
-    
-     wire ready;
-     wire enable;
-     wire t_last;
-
-    always @(posedge clk or posedge reset) begin
+    reg tlast_out;
+     
+     always @(posedge clk ) begin
+        if (reset) begin
+             tlast_out <= 1'b0;
+              end 
+              else begin
+              tlast_out <= s_axis_tlast;
+              end 
+        end
+    always @(posedge clk ) begin
         if (reset) begin
             reg_data <= 8'b0;
-        end else begin
-            if (m_axis_tready && valid_out) begin
-                reg_data <= s_axis_tdata;
-            end
+            valid_out<=1'b0;
+        end 
+        else if (s_axis_tready) begin
+            reg_data <= s_axis_tdata;
+            valid_out <= s_axis_tvalid;    
+                
         end
-    end
+        else 
+           reg_data <= 0;
+           valid_out <=0;
+        end
 
-    always @(posedge clk or posedge reset) begin
+ 
+  always @(posedge clk ) begin
         if (reset) begin
-            valid_out <= 1'b0;
-        end else begin
-            valid_out <= s_axis_tvalid ? 1'b1 : (m_axis_tready && valid_out);
+            ready_out <= 8'b0;
+            end
+            else 
+            ready_out <= m_axis_tready;
         end
-    end
+ 
 
-  always @ (posedge clk or posedge reset)
-  begin
-    if (reset == 1)
-    begin
-      out_tlast <= 0;
-    end
-      else if (enable == 1)
-      begin
-        out_tlast <= t_last;
-      end
-   end
-
-    assign ready = (valid_out == 0) | ((m_axis_tready == 1) & (valid_out == 1));
-    assign enable = ((ready == 1) & (s_axis_tvalid == 1));
-
-    assign t_last = (s_axis_tlast==1);
-
-    assign s_axis_tready = ~valid_out || m_axis_tready;
+    assign s_axis_tready = ready_out ;
     assign m_axis_tdata = reg_data;
     assign m_axis_tvalid = valid_out;
-    assign m_axis_tlast = out_tlast;
+    assign m_axis_tlast = tlast_out;
 
 endmodule
 
