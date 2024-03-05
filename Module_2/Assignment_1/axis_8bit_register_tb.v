@@ -42,7 +42,7 @@ module tb_axis_register;
  
     clk=0;
     reset=1;
-    s_axis_tdata=0;
+    s_axis_tdata=1;
     s_axis_tvalid=0;
     s_axis_tlast=0;
     m_axis_tready=0;
@@ -50,7 +50,7 @@ module tb_axis_register;
     fork
     axi_data_signal(20);
     axi_ready_signal(21);
-    axi_last_signal(22);
+    //axi_last_signal(22);
     join
 end
 
@@ -73,13 +73,14 @@ end
                 end
                 else begin
                 s_axis_tvalid <= 1;
-                s_axis_tdata <= s_axis_tdata+10;
+                s_axis_tdata <= 3*s_axis_tdata;
                 end
                
             end
             @(posedge clk);
             s_axis_tvalid <=0;
             s_axis_tdata <=0;
+           s_axis_tlast <= 1;
         end
     endtask
   
@@ -99,18 +100,18 @@ end
         end
     endtask
 
- task automatic axi_last_signal;
+ /*task automatic axi_last_signal;
  input integer j;
         begin
     
             repeat (j) @(posedge clk) begin
-            if(!s_axis_tdata)
+            if(!s_axis_tready)
                s_axis_tlast <= 1; 
                else
                s_axis_tlast<=0; 
             end
   
         end
-    endtask 
+    endtask */
     
 endmodule
