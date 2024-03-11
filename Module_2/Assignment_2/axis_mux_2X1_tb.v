@@ -1,87 +1,181 @@
 `timescale 1ns / 1ps
+`default_nettype none
 
-module test_axis_mux;
+module tb_axis_mux;
+ parameter  Data_Width = 8;
+    reg clk;
+    reg reset;
+    reg [ Data_Width-1:0] s_axis_tdata_1, s_axis_tdata_2;
+    reg s_axis_tvalid_1, s_axis_tvalid_2;
+    reg s_axis_tlast_1, s_axis_tlast_2;
+    wire s_axis_tready_1, s_axis_tready_2;
+    wire [ Data_Width-1:0] m_axis_tdata;
+    wire m_axis_tvalid;
+    reg m_axis_tready;
+    wire m_axis_tlast;
+    reg select;
 
-// Parameters
-parameter S_COUNT = 2;
-parameter DATA_WIDTH = 8;
-parameter integer CYCLE = 10; // Clock cycle in ns
+    // Instantiate the axis_mux module
+    axis_mux #(
+        .DATA_WIDTH(8)
+    ) dut (
+        .clk(clk),
+        .reset(reset),
+        .s_axis_tdata_1(s_axis_tdata_1),
+        .s_axis_tvalid_1(s_axis_tvalid_1),
+        .s_axis_tready_1(s_axis_tready_1),
+        .s_axis_tlast_1(s_axis_tlast_1),
+        .s_axis_tdata_2(s_axis_tdata_2),
+        .s_axis_tvalid_2(s_axis_tvalid_2),
+        .s_axis_tready_2(s_axis_tready_2),
+        .s_axis_tlast_2(s_axis_tlast_2),
+        .m_axis_tdata(m_axis_tdata),
+        .m_axis_tvalid(m_axis_tvalid),
+        .m_axis_tready(m_axis_tready),
+        .m_axis_tlast(m_axis_tlast),
+        .select(select)
+    );
 
-// Inputs
-reg clk = 0;
-reg rst = 0;
-reg m_axis_tready = 0;
-reg [S_COUNT-1:0] s_axis_tvalid = 0;
-reg [S_COUNT*DATA_WIDTH-1:0] s_axis_tdata = 0;
-reg [S_COUNT-1:0] s_axis_tlast = 0;
-reg [1:0] select = 0; // Adjust size as needed for more streams
-reg enable = 0;
+    // Clock generation
+    always #5 clk = ~clk;
 
-// Outputs
-wire [S_COUNT-1:0] s_axis_tready;
-wire [DATA_WIDTH-1:0] m_axis_tdata;
-wire m_axis_tvalid;
-wire m_axis_tlast;
+    // Reset generation
+  initial
+  begin
+  clk=0;
+  reset=1;
+  s_axis_tdata_1=1;
+  s_axis_tvalid_1=0;
+  s_axis_tlast_1=0;
+  s_axis_tdata_2=1;
+  s_axis_tvalid_2=0;
+  s_axis_tlast_2=0;
+  m_axis_tready=0;
+  reset_signal_task();
+    
+  fork
+  axi_data_signal(20);
+  axi_ready_signal(21);
+  //axi_last_signal(22);
+  join
+end
 
-// Instantiate the Unit Under Test (UUT)
-axis_mux #(
-    .S_COUNT(S_COUNT),
-    .DATA_WIDTH(DATA_WIDTH)
-) uut (
-    .clk(clk),
-    .rst(rst),
-    .m_axis_tready(m_axis_tready),
-    .s_axis_tvalid(s_axis_tvalid),
-    .s_axis_tdata(s_axis_tdata),
-    .s_axis_tlast(s_axis_tlast),
-    .s_axis_tready(s_axis_tready),
-    .m_axis_tdata(m_axis_tdata),
-    .m_axis_tvalid(m_axis_tvalid),
-    .m_axis_tlast(m_axis_tlast),
-    .enable(enable),
-    .select(select)
-);
-
-// Clock generation
-always #(CYCLE/2) clk = ~clk;
 
 initial begin
-    // Initialize Inputs
-    rst = 1; m_axis_tready = 1; // Assume the downstream module is ready to accept data
-    s_axis_tvalid = 0; s_axis_tdata = 0; s_axis_tlast = 0;
-    select = 0; enable = 0;
+    select=0;
+    #100
+    select=1;
+    #80
+    select=0;
+    #60
+    select=1;
+    #40
+    select=0;
+    #20
+    select=1;
+   end
+task automatic reset_signal_task;
+    begin
+    repeat (2) @(posedge clk);
+      reset = ~reset;
+    end
+  endtask
+  
+task automatic axi_data_signal;
+input integer j;
+begin
 
-    // Global reset
-    #(CYCLE*2); rst = 0;
-
-    // Test Case 1: Reset Check
-    #(CYCLE*10); // Wait for reset propagation
-
-    // Test Case 2: Stream Selection
-    enable = 1; select = 0; // Enable and select stream 0
-    s_axis_tvalid[0] = 1; s_axis_tdata[7:0] = 8'hAA; s_axis_tlast[0] = 1; // Data for stream 0
-    select = 0;
-    s_axis_tvalid[1] = 1; s_axis_tdata[15:8] = 8'h55; // Data for stream 1, should not be forwarded
-    #(CYCLE); // Wait a cycle
-    s_axis_tvalid = 0; s_axis_tlast = 0; // Clear valids
-
-    // Test Case 3: Data Forwarding with Enable
-    #(CYCLE*5);
-    select = 1; // Switch to stream 1
-    s_axis_tvalid[1] = 1; s_axis_tdata[15:8] = 8'hCC; s_axis_tlast[1] = 1; // Data for stream 1
-    #(CYCLE); // Wait a cycle
-    s_axis_tvalid = 1; s_axis_tlast = 0; // Clear valids
-
-    // Test Case 4: TLast Forwarding
-    enable = 1; select = 1;
-    s_axis_tvalid[0] = 1; s_axis_tdata[7:0] = 8'hFF; s_axis_tlast[0] = 1; // Stream 0 with tlast
-    #(CYCLE); // Wait a cycle
-    s_axis_tvalid = 0; s_axis_tlast = 0; // Clear valids
-    
-    // More test cases can be added here...
-
-    #(CYCLE*10); // Wait some time before finishing simulation
-    $finish;
+        repeat (j) begin
+            @(posedge clk); 
+            if(!select)begin
+                if (!s_axis_tready_1) begin 
+                 s_axis_tvalid_1 <= 0;
+                 s_axis_tdata_1<=s_axis_tdata_1;
+                 end
+                 else begin
+                 s_axis_tvalid_1 <= 1;
+                 s_axis_tdata_1 <= 2*s_axis_tdata_1;
+              
+                end
+                
+                end
+                else begin
+                if (!s_axis_tready_2) begin 
+                 s_axis_tvalid_2 <= 0;
+                 s_axis_tdata_2<=s_axis_tdata_2;
+                end
+                else begin
+                s_axis_tvalid_2 <= 1;
+                s_axis_tdata_2 <= 3*s_axis_tdata_2;
+                end
+                end
+        end
+       @(posedge clk);
+           s_axis_tlast_1 <= 1; 
+            s_axis_tvalid_1 <=0;
+            s_axis_tdata_1 <=0;
+             s_axis_tlast_2 <= 1;
+            s_axis_tvalid_2 <=0;
+            s_axis_tdata_2 <=0;
 end
+endtask
+ task automatic axi_ready_signal;
+ input integer j;
+        begin
+        
+           repeat (j) @(posedge clk) begin
+               m_axis_tready <= 1; 
+            end
+            @(posedge clk);
+            m_axis_tready <= 0;
+    
+ /*           repeat (j) @(posedge clk) begin
+            if(!select)begin
+            if(!s_axis_tlast_1)begin
+               m_axis_tready <= 1; 
+               end
+                  @(posedge clk) begin
+               m_axis_tready <= 0; 
+            end
+            end
+              else begin
+              if(!s_axis_tlast_2)begin
+               m_axis_tready <= 1; 
+               end
+                   @(posedge clk) begin
+               m_axis_tready <= 0; 
+            end
+             end
       
+           
+            end */
+        end
+    endtask
+   /*task automatic axi_last_signal;
+ input integer j;
+        begin
+    
+            repeat (j) @(posedge clk) begin
+            
+            if(!select)begin      
+            if(!s_axis_tdata_1)begin
+               s_axis_tlast_1 <= 1; 
+               end
+               else begin
+                if(!s_axis_tdata_2)begin
+               s_axis_tlast_2<=1;
+               end 
+               end
+            end
+            
+           @(posedge clk) begin
+               s_axis_tlast_1 <= 0;
+               s_axis_tlast_2<=0; 
+            end
+            end
+  
+        end
+    endtask */
+  
+  
 endmodule
