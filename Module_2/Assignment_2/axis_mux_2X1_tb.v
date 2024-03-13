@@ -44,19 +44,26 @@ module tb_axis_mux;
   begin
   clk=0;
   reset=1;
-  s_axis_tdata_1=1;
+  s_axis_tdata_1=0;
   s_axis_tvalid_1=0;
   s_axis_tlast_1=0;
-  s_axis_tdata_2=1;
+  s_axis_tdata_2=0;
   s_axis_tvalid_2=0;
   s_axis_tlast_2=0;
   m_axis_tready=0;
   reset_signal_task();
     
   fork
-  axi_data_signal(20);
   axi_ready_signal(21);
-  //axi_last_signal(22);
+//  #100
+  axi_data_signal(20);
+  axi_last_signal(22);
+  join
+   fork
+  axi_ready_signal(21);
+//  #100
+  axi_data_signal(20);
+  axi_last_signal(22);
   join
 end
 
@@ -69,9 +76,17 @@ initial begin
     select=0;
     #60
     select=1;
-    #40
+    #60
     select=0;
-    #20
+    #200
+    select=1;
+    #200
+    select=0;
+    #100
+    select=1;
+    #80
+    select=0;
+    #60
     select=1;
    end
 task automatic reset_signal_task;
@@ -80,7 +95,33 @@ task automatic reset_signal_task;
       reset = ~reset;
     end
   endtask
-  
+  task automatic axi_last_signal;
+input integer j;
+begin
+
+        repeat (j) begin
+            @(posedge clk); 
+            if(!select)begin
+                if (s_axis_tdata_1==8) begin 
+               s_axis_tlast_1 <= 1;
+                 end
+                 else begin
+                   s_axis_tlast_1 <= 0;
+              
+                end
+                
+                end
+                else begin
+                if (s_axis_tdata_2==15) begin 
+              s_axis_tlast_2 <= 1;
+                end
+                else begin
+               s_axis_tlast_2 <= 0;
+                end
+                end
+        end
+        end
+endtask
 task automatic axi_data_signal;
 input integer j;
 begin
@@ -90,11 +131,11 @@ begin
             if(!select)begin
                 if (!s_axis_tready_1) begin 
                  s_axis_tvalid_1 <= 0;
-                 s_axis_tdata_1<=s_axis_tdata_1;
+                 s_axis_tdata_1<=0;
                  end
                  else begin
                  s_axis_tvalid_1 <= 1;
-                 s_axis_tdata_1 <= 2*s_axis_tdata_1;
+                 s_axis_tdata_1 <= 2+s_axis_tdata_1;
               
                 end
                 
@@ -102,19 +143,19 @@ begin
                 else begin
                 if (!s_axis_tready_2) begin 
                  s_axis_tvalid_2 <= 0;
-                 s_axis_tdata_2<=s_axis_tdata_2;
+                 s_axis_tdata_2<=0;
                 end
                 else begin
                 s_axis_tvalid_2 <= 1;
-                s_axis_tdata_2 <= 3*s_axis_tdata_2;
+                s_axis_tdata_2 <= 3+s_axis_tdata_2;
                 end
                 end
         end
        @(posedge clk);
-           s_axis_tlast_1 <= 1; 
+       //    s_axis_tlast_1 <= 1; 
             s_axis_tvalid_1 <=0;
             s_axis_tdata_1 <=0;
-             s_axis_tlast_2 <= 1;
+         //    s_axis_tlast_2 <= 1;
             s_axis_tvalid_2 <=0;
             s_axis_tdata_2 <=0;
 end
@@ -129,53 +170,8 @@ endtask
             @(posedge clk);
             m_axis_tready <= 0;
     
- /*           repeat (j) @(posedge clk) begin
-            if(!select)begin
-            if(!s_axis_tlast_1)begin
-               m_axis_tready <= 1; 
-               end
-                  @(posedge clk) begin
-               m_axis_tready <= 0; 
-            end
-            end
-              else begin
-              if(!s_axis_tlast_2)begin
-               m_axis_tready <= 1; 
-               end
-                   @(posedge clk) begin
-               m_axis_tready <= 0; 
-            end
-             end
-      
-           
-            end */
         end
     endtask
-   /*task automatic axi_last_signal;
- input integer j;
-        begin
-    
-            repeat (j) @(posedge clk) begin
-            
-            if(!select)begin      
-            if(!s_axis_tdata_1)begin
-               s_axis_tlast_1 <= 1; 
-               end
-               else begin
-                if(!s_axis_tdata_2)begin
-               s_axis_tlast_2<=1;
-               end 
-               end
-            end
-            
-           @(posedge clk) begin
-               s_axis_tlast_1 <= 0;
-               s_axis_tlast_2<=0; 
-            end
-            end
-  
-        end
-    endtask */
-  
+ 
   
 endmodule

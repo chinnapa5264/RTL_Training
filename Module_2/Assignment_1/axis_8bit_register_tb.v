@@ -42,15 +42,24 @@ module tb_axis_register;
  
     clk=0;
     reset=1;
-    s_axis_tdata=1;
+    s_axis_tdata=0;
     s_axis_tvalid=0;
     s_axis_tlast=0;
     m_axis_tready=0;
     reset_signal_task();
     fork
-    axi_data_signal(20);
-    axi_ready_signal(21);
-    //axi_last_signal(22);
+ 
+      axi_ready_signal(50);
+    //     #200
+        axi_data_signal(20);
+    axi_last_signal(22);
+   
+    join
+      fork
+      axi_ready_signal(10);
+    //#200
+        axi_data_signal(10);
+    axi_last_signal(12);
     join
 end
 
@@ -60,7 +69,20 @@ end
       reset = ~reset;
     end
   endtask
-
+ task automatic axi_last_signal;
+     input integer n;
+        begin
+        repeat (n) begin
+            @(posedge clk); 
+                if (s_axis_tdata==21) begin 
+                 s_axis_tlast <= 1;
+                end
+                else begin    
+                s_axis_tlast <= 0;
+                end
+            end
+        end
+    endtask
   
   task automatic axi_data_signal;
      input integer k;
@@ -73,14 +95,14 @@ end
                 end
                 else begin
                 s_axis_tvalid <= 1;
-                s_axis_tdata <= 3*s_axis_tdata;
+                s_axis_tdata <= 3+s_axis_tdata;
                 end
                
             end
             @(posedge clk);
             s_axis_tvalid <=0;
             s_axis_tdata <=0;
-           s_axis_tlast <= 1;
+         //  s_axis_tlast <= 1;
         end
     endtask
   
@@ -89,17 +111,23 @@ end
         begin
     
             repeat (j) @(posedge clk) begin
-            if(!s_axis_tlast)
                m_axis_tready <= 1; 
-               else
-               m_axis_tready <= 0; 
             end
           @(posedge clk) begin
                m_axis_tready <= 0; 
             end
         end
     endtask
-
+    
+ task automatic axi_ready_signal_low;
+ input integer h;
+        begin
+    
+            repeat (h) @(posedge clk) begin
+               m_axis_tready <= 0;  
+            end
+        end
+    endtask
  /*task automatic axi_last_signal;
  input integer j;
         begin

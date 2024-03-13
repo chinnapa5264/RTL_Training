@@ -20,22 +20,16 @@ module eight_bit_register #(parameter Data_width = 8) (
     reg valid_out;
     reg tlast_out;
      
-     always @(posedge clk ) begin
-        if (reset) begin
-             tlast_out <= 1'b0;
-              end 
-              else begin
-              tlast_out <= s_axis_tlast;
  
-              end 
-        end
         
     always @(posedge clk ) begin
         if (reset) begin
            valid_out<=1'b0;
+            tlast_out <= 1'b0;
         end 
         else  begin
-           valid_out <= s_axis_tvalid;    
+           valid_out <= s_axis_tvalid; 
+            tlast_out <= s_axis_tlast;   
                 
         end
       
@@ -44,9 +38,13 @@ module eight_bit_register #(parameter Data_width = 8) (
     always @(posedge clk ) begin
         if (reset) begin
             reg_data <= 8'b0;
+           //   valid_out<=1'b0;
+            //tlast_out <= 1'b0;
         end 
-        else if (s_axis_tready && s_axis_tvalid) begin
-            reg_data <= s_axis_tdata;            
+        else if (s_axis_tready&& s_axis_tvalid) begin
+            reg_data <= s_axis_tdata;    
+              //   valid_out <= s_axis_tvalid; 
+            //tlast_out <= s_axis_tlast;        
         end
         else 
            reg_data <= 0;
