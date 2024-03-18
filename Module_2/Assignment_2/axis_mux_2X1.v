@@ -51,31 +51,7 @@ module axis_mux #
     reg valid_out;
     reg tlast_out;
 
-   always @(posedge clk ) begin
-        if (reset) begin
-             tlast_out <= 1'b0;
-              end 
-              else begin
-              if(!select)
-              tlast_out <= s_axis_tlast_1;
-              else
-              tlast_out <= s_axis_tlast_2;
-              end 
-        end
-        
-        
-       always @(posedge clk ) begin
-        if (reset) begin
-           valid_out<=1'b0;
-        end 
-        else  begin
-         if(!select)
-           valid_out <= s_axis_tvalid_1;    
-          else
-           valid_out <= s_axis_tvalid_2;
-           end     
-        end
-      
+
 
         
  always @(posedge clk )
@@ -83,7 +59,8 @@ module axis_mux #
     if (reset)
     begin
      reg_data <= 8'b0;
-    // valid_out<=1'b0;
+     valid_out<=1'b0;
+     tlast_out <=0;
     end
     else
     begin
@@ -92,12 +69,13 @@ module axis_mux #
         if ( s_axis_tready_1 && s_axis_tvalid_1 )
         begin
           reg_data <= s_axis_tdata_1;
-         // valid_out <= s_axis_tvalid_1;
+          valid_out <= s_axis_tvalid_1;
+            tlast_out <= s_axis_tlast_1;
         end
         else
         begin
            reg_data <= 0;
-          // valid_out <=0;
+           valid_out <=0;
         end
 
       end
@@ -106,12 +84,13 @@ module axis_mux #
         if ( s_axis_tready_2 && s_axis_tvalid_2 )
         begin
           reg_data <= s_axis_tdata_2;
-       //   m_axis_tvalid <= s_axis_tvalid_2;
+          valid_out <= s_axis_tvalid_2;
+          tlast_out <= s_axis_tlast_2;
         end
         else
         begin
          reg_data <= 0;
-       //  valid_out <=0;
+         valid_out <=0;
         end
       end
     end

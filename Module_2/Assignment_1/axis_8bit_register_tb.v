@@ -118,28 +118,5 @@ end
             end
         end
     endtask
-    
- task automatic axi_ready_signal_low;
- input integer h;
-        begin
-    
-            repeat (h) @(posedge clk) begin
-               m_axis_tready <= 0;  
-            end
-        end
-    endtask
- /*task automatic axi_last_signal;
- input integer j;
-        begin
-    
-            repeat (j) @(posedge clk) begin
-            if(!s_axis_tready)
-               s_axis_tlast <= 1; 
-               else
-               s_axis_tlast<=0; 
-            end
-  
-        end
-    endtask */
-    
+        
 endmodule
