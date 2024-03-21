@@ -93,7 +93,7 @@ task automatic reset;
         @(posedge clk);
         $fscanf(file1,"%d,%b",s_axis_tdata,s_axis_tlast);
         s_axis_tvalid<=1;
-        $display("%d,%b\n",s_axis_tdata,s_axis_tlast);
+        $display("%d,%d\n",s_axis_tdata,s_axis_tlast);
       end
     end
     s_axis_tvalid<=0;
@@ -126,7 +126,11 @@ task automatic reset;
   $fclose(file2);
   endtask
 
- /* // Parameters
+ 
+endmodule
+
+
+/* // Parameters
   localparam  DataWidth = 32;
   localparam  Depth = 16;
   localparam PtrWidth= $clog2(Depth);
@@ -243,9 +247,5 @@ m_axis_tready =0;
 m_axis_tready =1;
 end
 */
-endmodule
-
-
-
 
 

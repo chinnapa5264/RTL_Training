@@ -49,6 +49,7 @@ module eight_bit_register #(parameter Data_width = 8) (
         else begin
            reg_data <= 0;
            valid_out <=0;
+           tlast_out <=0;
            end
         end
 

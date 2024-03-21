@@ -76,6 +76,7 @@ module axis_mux #
         begin
            reg_data <= 0;
            valid_out <=0;
+	   tlast_out <=0;
         end
 
       end
@@ -91,6 +92,7 @@ module axis_mux #
         begin
          reg_data <= 0;
          valid_out <=0;
+         tlast_out <=0;
         end
       end
     end
@@ -106,10 +108,10 @@ module axis_mux #
             begin 
             if(!select) begin
             ready_out_1 <= m_axis_tready;
-            //ready_out_2 <= 0; 
+            ready_out_2 <= 0; 
             end          
             else begin
-           // ready_out_1 <=0;
+            ready_out_1 <=0;
             ready_out_2 <= m_axis_tready;
             end
             end
@@ -119,7 +121,7 @@ module axis_mux #
         
  
     assign s_axis_tready_1 = ready_out_1 ;
-     assign s_axis_tready_2 = ready_out_2 ;
+    assign s_axis_tready_2 = ready_out_2 ;
     assign m_axis_tdata = reg_data;
     assign m_axis_tvalid = valid_out;
     assign m_axis_tlast = tlast_out;
