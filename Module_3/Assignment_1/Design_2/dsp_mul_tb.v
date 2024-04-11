@@ -3,7 +3,7 @@
 module dsp_mult_tb;
 
     // Parameters
-    parameter WIDTH = 8;
+    parameter WIDTH = 16;
     
     // Signals
     reg clk;
@@ -84,29 +84,15 @@ integer file1;
         $display("%d,%d,%d\n",input_a_tdata,input_b_tdata,input_c_tdata);
       end
     end
+    @(negedge clk)
      input_a_tvalid<=0;
      input_b_tvalid<=0;
      input_c_tvalid<=0;
-    $fclose(file1);
+     input_a_tdata<=0;
+     input_b_tdata<=0;
+     input_c_tdata<=0;
+     $fclose(file1);
     end
    endtask
   endmodule
- /* task automatic axis_data_signal;
-    file1 = $fopen("data_input_with_last_2048.csv", "r");
-    repeat (10)
-    begin
-      if (file1 == 0)
-      begin
-        $stop("Error in Opening file !!");
-      end
-      else
-      begin
-        @(posedge clk);
-        $fscanf(file1,"%d,%b",s_axis_tdata,s_axis_tlast);
-        input_a_tvalid<=1;
-        $display("%d,%b\n",s_axis_tdata,s_axis_tlast);
-      end
-    end
-    input_a_tvalid<=0;
-    $fclose(file1);
-  endtask*/
+ 

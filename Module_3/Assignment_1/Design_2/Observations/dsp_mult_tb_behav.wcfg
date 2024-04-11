@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="19.930 ns"></ZoomStartTime>
-      <ZoomEndTime time="325.824 ns"></ZoomEndTime>
-      <Cursor1Time time="40.000 ns"></Cursor1Time>
+      <ZoomStartTime time="871.833 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,025.634 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="221"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="227"></NameColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="24" />
+   <WVObjectSize size="26" />
    <wvobject fp_name="/dsp_mult_tb/uut/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -29,8 +29,8 @@
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/input_a_tdata" type="array">
-      <obj_property name="ElementShortName">input_a_tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_a_tdata[7:0]</obj_property>
+      <obj_property name="ElementShortName">input_a_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_a_tdata[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/input_a_tvalid" type="logic">
       <obj_property name="ElementShortName">input_a_tvalid</obj_property>
@@ -40,17 +40,9 @@
       <obj_property name="ElementShortName">input_a_tready</obj_property>
       <obj_property name="ObjectShortName">input_a_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/input_a_reg_0" type="array">
-      <obj_property name="ElementShortName">input_a_reg_0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_a_reg_0[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/input_a_reg_1" type="array">
-      <obj_property name="ElementShortName">input_a_reg_1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_a_reg_1[7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/input_b_tdata" type="array">
-      <obj_property name="ElementShortName">input_b_tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_b_tdata[7:0]</obj_property>
+      <obj_property name="ElementShortName">input_b_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_b_tdata[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/input_b_tvalid" type="logic">
       <obj_property name="ElementShortName">input_b_tvalid</obj_property>
@@ -60,17 +52,9 @@
       <obj_property name="ElementShortName">input_b_tready</obj_property>
       <obj_property name="ObjectShortName">input_b_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/input_b_reg_0" type="array">
-      <obj_property name="ElementShortName">input_b_reg_0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_b_reg_0[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/input_b_reg_1" type="array">
-      <obj_property name="ElementShortName">input_b_reg_1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_b_reg_1[7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/input_c_tdata" type="array">
-      <obj_property name="ElementShortName">input_c_tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_c_tdata[7:0]</obj_property>
+      <obj_property name="ElementShortName">input_c_tdata[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_c_tdata[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/input_c_tvalid" type="logic">
       <obj_property name="ElementShortName">input_c_tvalid</obj_property>
@@ -80,17 +64,9 @@
       <obj_property name="ElementShortName">input_c_tready</obj_property>
       <obj_property name="ObjectShortName">input_c_tready</obj_property>
    </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/input_c_reg_0" type="array">
-      <obj_property name="ElementShortName">input_c_reg_0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_c_reg_0[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/input_c_reg_1" type="array">
-      <obj_property name="ElementShortName">input_c_reg_1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">input_c_reg_1[7:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/output_tdata" type="array">
-      <obj_property name="ElementShortName">output_tdata[15:0]</obj_property>
-      <obj_property name="ObjectShortName">output_tdata[15:0]</obj_property>
+      <obj_property name="ElementShortName">output_tdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">output_tdata[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/output_tvalid" type="logic">
       <obj_property name="ElementShortName">output_tvalid</obj_property>
@@ -100,17 +76,49 @@
       <obj_property name="ElementShortName">output_tready</obj_property>
       <obj_property name="ObjectShortName">output_tready</obj_property>
    </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/input_a_reg_0" type="array">
+      <obj_property name="ElementShortName">input_a_reg_0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_a_reg_0[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/input_b_reg_0" type="array">
+      <obj_property name="ElementShortName">input_b_reg_0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_b_reg_0[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/input_c_reg_0" type="array">
+      <obj_property name="ElementShortName">input_c_reg_0[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_c_reg_0[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/output_tvalid_reg1" type="logic">
+      <obj_property name="ElementShortName">output_tvalid_reg1</obj_property>
+      <obj_property name="ObjectShortName">output_tvalid_reg1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/input_a_reg_1" type="array">
+      <obj_property name="ElementShortName">input_a_reg_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_a_reg_1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/input_b_reg_1" type="array">
+      <obj_property name="ElementShortName">input_b_reg_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_b_reg_1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/input_c_reg_1" type="array">
+      <obj_property name="ElementShortName">input_c_reg_1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">input_c_reg_1[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/output_tvalid_reg2" type="logic">
+      <obj_property name="ElementShortName">output_tvalid_reg2</obj_property>
+      <obj_property name="ObjectShortName">output_tvalid_reg2</obj_property>
+   </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/output_reg_0" type="array">
-      <obj_property name="ElementShortName">output_reg_0[15:0]</obj_property>
-      <obj_property name="ObjectShortName">output_reg_0[15:0]</obj_property>
+      <obj_property name="ElementShortName">output_reg_0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">output_reg_0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/dsp_mult_tb/uut/output_tvalid_reg3" type="logic">
+      <obj_property name="ElementShortName">output_tvalid_reg3</obj_property>
+      <obj_property name="ObjectShortName">output_tvalid_reg3</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/output_reg_1" type="array">
-      <obj_property name="ElementShortName">output_reg_1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">output_reg_1[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/dsp_mult_tb/uut/transfer" type="logic">
-      <obj_property name="ElementShortName">transfer</obj_property>
-      <obj_property name="ObjectShortName">transfer</obj_property>
+      <obj_property name="ElementShortName">output_reg_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">output_reg_1[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/dsp_mult_tb/uut/WIDTH" type="array">
       <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="axi_stream_multiply_add_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="axi_stream_multiply_add_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="151.594 ns"></ZoomEndTime>
+      <Cursor1Time time="160.540 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="227"></NameColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/a" type="array">
+      <obj_property name="ElementShortName">a[7:0]</obj_property>
+      <obj_property name="ObjectShortName">a[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_valid_a" type="logic">
+      <obj_property name="ElementShortName">s_axis_valid_a</obj_property>
+      <obj_property name="ObjectShortName">s_axis_valid_a</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_ready_a" type="logic">
+      <obj_property name="ElementShortName">s_axis_ready_a</obj_property>
+      <obj_property name="ObjectShortName">s_axis_ready_a</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/b" type="array">
+      <obj_property name="ElementShortName">b[7:0]</obj_property>
+      <obj_property name="ObjectShortName">b[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_valid_b" type="logic">
+      <obj_property name="ElementShortName">s_axis_valid_b</obj_property>
+      <obj_property name="ObjectShortName">s_axis_valid_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_ready_b" type="logic">
+      <obj_property name="ElementShortName">s_axis_ready_b</obj_property>
+      <obj_property name="ObjectShortName">s_axis_ready_b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/c" type="array">
+      <obj_property name="ElementShortName">c[7:0]</obj_property>
+      <obj_property name="ObjectShortName">c[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_valid_c" type="logic">
+      <obj_property name="ElementShortName">s_axis_valid_c</obj_property>
+      <obj_property name="ObjectShortName">s_axis_valid_c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_ready_c" type="logic">
+      <obj_property name="ElementShortName">s_axis_ready_c</obj_property>
+      <obj_property name="ObjectShortName">s_axis_ready_c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/d" type="array">
+      <obj_property name="ElementShortName">d[7:0]</obj_property>
+      <obj_property name="ObjectShortName">d[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_valid_d" type="logic">
+      <obj_property name="ElementShortName">s_axis_valid_d</obj_property>
+      <obj_property name="ObjectShortName">s_axis_valid_d</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/s_axis_ready_d" type="logic">
+      <obj_property name="ElementShortName">s_axis_ready_d</obj_property>
+      <obj_property name="ObjectShortName">s_axis_ready_d</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/m_axis_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/m_axis_valid" type="logic">
+      <obj_property name="ElementShortName">m_axis_valid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/m_axis_ready" type="logic">
+      <obj_property name="ElementShortName">m_axis_ready</obj_property>
+      <obj_property name="ObjectShortName">m_axis_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/overflow" type="logic">
+      <obj_property name="ElementShortName">overflow</obj_property>
+      <obj_property name="ObjectShortName">overflow</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/reg1" type="array">
+      <obj_property name="ElementShortName">reg1[8:0]</obj_property>
+      <obj_property name="ObjectShortName">reg1[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/reg2" type="array">
+      <obj_property name="ElementShortName">reg2[8:0]</obj_property>
+      <obj_property name="ObjectShortName">reg2[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/reg3" type="array">
+      <obj_property name="ElementShortName">reg3[15:0]</obj_property>
+      <obj_property name="ObjectShortName">reg3[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/axi_stream_multiply_add_tb/dut/DW" type="array">
+      <obj_property name="ElementShortName">DW[31:0]</obj_property>
+      <obj_property name="ObjectShortName">DW[31:0]</obj_property>
+   </wvobject>
+</wave_config>

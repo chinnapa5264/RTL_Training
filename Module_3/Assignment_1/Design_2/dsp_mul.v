@@ -5,7 +5,7 @@
  */
 module dsp_mult #
 (
-    parameter WIDTH = 8
+    parameter WIDTH = 16
 )
 (
     input  wire                  clk,
@@ -29,7 +29,7 @@ module dsp_mult #
      * AXI stream output
      */
     output wire [(WIDTH*2)-1:0]  output_tdata,
-    output wire                  output_tvalid,
+    output reg                   output_tvalid,
     input  wire                  output_tready
 );
 
@@ -44,8 +44,9 @@ reg [WIDTH-1:0] input_c_reg_1 = 0;
 
 reg [(WIDTH*2)-1:0] output_reg_0 = 0;
 reg [(WIDTH*2)-1:0] output_reg_1 = 0;
+reg output_tvalid_reg1 , output_tvalid_reg2,output_tvalid_reg3;
 
-wire transfer = input_a_tvalid & input_b_tvalid &input_c_tvalid & output_tready;
+
 
 assign input_a_tready = input_b_tvalid & output_tready?1:0;
 assign input_b_tready = input_a_tvalid & output_tready?1:0;
@@ -53,7 +54,7 @@ assign input_c_tready = input_c_tvalid & output_tready?1:0;
 
 
 assign output_tdata = output_reg_1;
-assign output_tvalid = input_a_tvalid & input_b_tvalid & input_c_tvalid;
+
 
 always @(posedge clk) begin
     if (rst) begin
@@ -68,8 +69,12 @@ always @(posedge clk) begin
         
         output_reg_0 <= 0;
         output_reg_1 <= 0;
+        output_tvalid_reg1<=0;
+        output_tvalid_reg2<=0;
+        output_tvalid_reg3<=0;
+        output_tvalid <=0;
     end else begin
-        if (transfer) begin
+        if (input_a_tvalid & input_b_tvalid &input_c_tvalid & output_tready) begin
             // pipeline for Xilinx DSP slice
 
             // register
@@ -87,6 +92,28 @@ always @(posedge clk) begin
 
             // pipeline
             output_reg_1 <= output_reg_0;
+            output_tvalid_reg1<=input_a_tvalid & input_b_tvalid & input_c_tvalid;
+            output_tvalid_reg2<=output_tvalid_reg1;
+            output_tvalid_reg3<=output_tvalid_reg2;
+            output_tvalid <= output_tvalid_reg3;
+        end
+        else begin 
+        input_a_reg_0 <= 0;
+        input_a_reg_1 <= 0;
+
+        input_b_reg_0 <= 0;
+        input_b_reg_1 <= 0;
+        
+        input_c_reg_0 <= 0;
+        input_c_reg_1 <= 0;
+        
+        output_reg_0 <= 0;
+        output_reg_1 <= 0;
+        output_tvalid_reg1<=0;
+        output_tvalid_reg2<=0;
+        output_tvalid_reg3<=0;
+        output_tvalid<=0;
+        
         end
     end
 end
