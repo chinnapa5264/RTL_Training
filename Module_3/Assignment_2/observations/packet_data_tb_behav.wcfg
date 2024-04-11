@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="packet_data_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="packet_data_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="101.226 ns"></ZoomEndTime>
+      <Cursor1Time time="170.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="227"></NameColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="24" />
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/s_axis_tdata" type="array">
+      <obj_property name="ElementShortName">s_axis_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/s_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">s_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/s_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">s_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/s_axis_tready" type="logic">
+      <obj_property name="ElementShortName">s_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">s_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/packet_config" type="array">
+      <obj_property name="ElementShortName">packet_config[15:0]</obj_property>
+      <obj_property name="ObjectShortName">packet_config[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/m_axis_tdata" type="array">
+      <obj_property name="ElementShortName">m_axis_tdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/m_axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">m_axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/m_axis_tlast" type="logic">
+      <obj_property name="ElementShortName">m_axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/m_axis_tready" type="logic">
+      <obj_property name="ElementShortName">m_axis_tready</obj_property>
+      <obj_property name="ObjectShortName">m_axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/full" type="logic">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/empty" type="logic">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/mem_1" type="array">
+      <obj_property name="ElementShortName">mem_1[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_1[63:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/mem_2" type="array">
+      <obj_property name="ElementShortName">mem_2[63:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_2[63:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/mem_3" type="array">
+      <obj_property name="ElementShortName">mem_3[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_3[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/k" type="array">
+      <obj_property name="ElementShortName">k[7:0]</obj_property>
+      <obj_property name="ObjectShortName">k[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/len" type="array">
+      <obj_property name="ElementShortName">len[7:0]</obj_property>
+      <obj_property name="ObjectShortName">len[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/wr_ptr" type="array">
+      <obj_property name="ElementShortName">wr_ptr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/rd_ptr" type="array">
+      <obj_property name="ElementShortName">rd_ptr[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/wr_ptr2" type="array">
+      <obj_property name="ElementShortName">wr_ptr2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/Data_width" type="array">
+      <obj_property name="ElementShortName">Data_width[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Data_width[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/packet_data_tb/packet_add_dut1/Depth" type="array">
+      <obj_property name="ElementShortName">Depth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Depth[31:0]</obj_property>
+   </wvobject>
+</wave_config>
