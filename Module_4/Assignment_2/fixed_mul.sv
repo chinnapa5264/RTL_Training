@@ -20,13 +20,13 @@ module FPmul
    );
 
 wire [(intL+fracL):0] tempmult;
-reg  multiply_1,multipy_2;
+
 reg sign;
 reg  [(WIO-1) : 0] outI;
 reg  [(WFO-1) : 0] outF;
 
 
-assign tempmult = A *B;
+assign tempmult = $signed(A)*$signed(B);
 
 //------------------------------------------truncation-------------------------------------------------//
 //---------------------------------adjusting bitwidth of fractional part-------------------------------//
@@ -53,24 +53,10 @@ end
 
 
 
- assign multiply_1 = (A[WI1+WF1-1:0]==0) | (B[WI2+WF2-1:0]==0) ;
+ 
+assign overflow = (intL>=WIO)?tempmult[intL+fracL]? (~&tempmult[intL+fracL: fracL+WIO-1] == tempmult[intL+fracL ]):(|tempmult[intL+fracL-1:fracL+WIO-1]):0;                   
 
-//assign overflow = ((A[WI1+WF1-1] && B[WI2+WF2-1] &&tempmult[WIO+fracL]) ||  // Positive overflow
-               //  (~A[WI1+WF1-1] && ~B[WI2+WF2-1] && tempmult[WIO+fracL]) || // Negative overflow
-               //    (A[WI1+WF1-1] && ~B[WI2+WF2-1] &&~ tempmult[WIO+fracL]) || // Negative overflow
-               //    (~A[WI1+WF1-1] && B[WI2+WF2-1] && ~tempmult[WIO+fracL-1]));  // Negative overflow
-
-assign overflow =  multiply_1?0: ((A[WI1+WF1-1] && B[WI2+WF2-1] &&(tempmult[WIO+fracL]|multiply[WIO+WFO-1])) ||  // Positive overflow
-                 (~A[WI1+WF1-1] && ~B[WI2+WF2-1] && (tempmult[WIO+fracL]|multiply[WIO+WFO-1])) || // Negative overflow
-                   (A[WI1+WF1-1] && ~B[WI2+WF2-1] && (~tempmult[WIO+fracL]|~ multiply[WIO+WFO-1])) || // Negative overflow
-                   (~A[WI1+WF1-1] && B[WI2+WF2-1] && (~tempmult[WIO+fracL]|~multiply[WIO+WFO-1])));  // Negative overflow
-                   
-
-//assign underflow = multiply_1?0: ((A[WI1+WF1-1] && B[WI2+WF2-1] &&(|tempmult[fracL-WFO-1:0])) ||  // Positive overflow
-                // (~A[WI1+WF1-1] && ~B[WI2+WF2-1] && (|tempmult[fracL-WFO-1:0])) || // Negative overflow
-                 // (A[WI1+WF1-1] && ~B[WI2+WF2-1] && (|tempmult[fracL-WFO-1:0])) || // Negative overflow
-                  // (~A[WI1+WF1-1] && B[WI2+WF2-1] && (|tempmult[fracL-WFO-1:0])));  // Negative overflow
-                  
+                 
  assign underflow = (WFO==fracL)?0:|tempmult[fracL-WFO-1:0];
                 
 
@@ -85,7 +71,7 @@ always @* begin
      
     end  
     else begin
-      outI = {sign,tempmult[WIO+fracL:fracL]};
+      outI = {sign,tempmult[WIO+fracL-1:fracL]};
       
     end
   end

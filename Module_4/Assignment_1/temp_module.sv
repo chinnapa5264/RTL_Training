@@ -20,8 +20,7 @@ module FPadder
     );
 
 wire   [bigger_int+bigger_Frac: 0] tempout;    // output without truncation 
-reg signed  [WIO+WFO-1 : 0] out_reg;
-//wire   [WIO+WFO: 0] tempout;    // output without truncation  
+
 
 reg sign;  
 reg    [(WI1+WF1-1):WF1] A_I;                               // integer part of A
@@ -74,32 +73,18 @@ always @* begin
  tempA = {tempA_I,tempA_F};
  tempB = {tempB_I,tempB_F};
  end
-assign tempout = tempA + tempB;
+assign tempout = $signed(tempA) + $signed(tempB);
 
 
 always @ * begin
 if ((tempA[bigger_int+bigger_Frac-1]&& tempB[bigger_int+bigger_Frac-1]))
- sign = 1;//tempout[WIO+WFO-1];
+ sign = 1;
 else if((!tempA[bigger_int+bigger_Frac-1]== tempB[bigger_int+bigger_Frac-1]||tempA[bigger_int+bigger_Frac-1]==! tempB[bigger_int+bigger_Frac-1]))
-// begin
- //if(tempA[bigger_int+bigger_Frac-2:0]> tempB[bigger_int+bigger_Frac-2:0])
- //sign = tempA[bigger_int+bigger_Frac-1];//tempout[bigger_int+bigger_Frac-2]; 
- //else if(tempA[bigger_int+bigger_Frac-2:0]< tempB[bigger_int+bigger_Frac-2:0])
- //sign = tempB[bigger_int+bigger_Frac-1];//tempout[bigger_int+bigger_Frac-2]; 
- //end
-  sign = tempout[bigger_int+bigger_Frac-1]; 
+sign = tempout[bigger_int+bigger_Frac-1]; 
 else 
  sign=0;
 end
 
-/*always @ * begin
-if ((A[WI1+WF1-1]&& B[WI2+WF2-1]))
- sign = 1;//tempout[WIO+WFO-1];
-else if((!A[WI1+WF1-1]== B[WI2+WF2-1]||A[WI1+WF1-1]==! B[WI2+WF2-1]))
- sign = tempout[WIO+WFO-2]; 
-else 
- sign=0;//A[WI1 + WF1 - 1];
-end*/
 
 
 //------------------------------------------truncation-------------------------------------------------//
@@ -114,12 +99,10 @@ always @* begin
 end
 //---------------------adjusting bitwidth of Integer part and check if overflow occurs-----------------//
 // If overflow occurs indicate by making overflow flag = 1
-//assign overflow = (~tempA[bigger_int+bigger_Frac-1] & ~tempB[bigger_int+bigger_Frac-1] & tempout[WIO+WFO-1] |
-//                  tempA[bigger_int+bigger_Frac-1] & tempB[bigger_int+bigger_Frac-1] & ~  tempout[WIO+WFO-1]);
-assign overflow = (~tempA[bigger_int+bigger_Frac-1] & ~tempB[bigger_int+bigger_Frac-1] & out[WIO+WFO-1] |
-                  tempA[bigger_int+bigger_Frac-1] & tempB[bigger_int+bigger_Frac-1] & ~  out[WIO+WFO-1]);
-//assign overflow = (~tempA[bigger_int+bigger_Frac-1] & ~tempB[bigger_int+bigger_Frac-1] & tempout[bigger_int+bigger_Frac-1]|
-  //                tempA[bigger_int+bigger_Frac-1] & tempB[bigger_int+bigger_Frac-1] & ~  tempout[bigger_int+bigger_Frac-1]);
+             
+assign overflow = (bigger_int>=WIO)?tempout[bigger_int+bigger_Frac]? (~&tempout[bigger_int+bigger_Frac: bigger_Frac+WIO-1] == tempout[bigger_int+bigger_Frac ]):(|tempout[bigger_int+bigger_Frac-1:bigger_Frac+WIO-1]):0;
+
+
 always @* begin
   if (WIO >= (bigger_int)+1)begin
     outI = {{(WIO-bigger_int){sign}},tempout[bigger_int+bigger_Frac-1:bigger_Frac]};
@@ -129,14 +112,14 @@ always @* begin
       outI = sign;
     end  
     else begin
-      outI = {sign,tempout[bigger_int+bigger_Frac-1:bigger_Frac]};
+      outI = {sign,tempout[WIO+WFO-2:WFO]};
   end
 end
 end
 
 assign out ={outI,outF};
 
-//assign out = out_reg;//overflow ? tempout[WIO+WFO-1:WFO]:out_reg;
+
 
 
 endmodule
